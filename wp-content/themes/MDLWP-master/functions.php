@@ -77,6 +77,8 @@ function mdlwp_setup() {
 		'default-image' => '',
 	) ) );
 }
+
+
 endif; // mdlwp_setup
 add_action( 'after_setup_theme', 'mdlwp_setup' );
 
@@ -141,6 +143,7 @@ function mdlwp_widgets_init() {
 add_action( 'widgets_init', 'mdlwp_widgets_init' );
 
 add_action( 'widgets_init', 'mdlwp_woocommerce_sidebar_init' );
+
 function mdlwp_woocommerce_sidebar_init() {
 	register_sidebar( array(
 		'name' => __( 'WooCommerce Sidebar', 'mdlwp' ),
@@ -194,7 +197,7 @@ function woocommerce_support() {
 
 
 function mdlwp_wrapper_start() {
-	echo '<section id="main" class="site-main mdl-grid mdlwp-900">';
+	echo '<section id="main" class="site-main mdl-grid mdlwp-1170">';
 }
 
 function mdlwp_wrapper_end() {

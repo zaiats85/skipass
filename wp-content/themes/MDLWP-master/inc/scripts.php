@@ -12,11 +12,13 @@ function mdlwp_scripts() {
 
 	wp_enqueue_style( 'mdlwp-mdl-roboto', '//fonts.googleapis.com/css?family=Roboto:300,400,500,700' );
 
-	wp_enqueue_style( 'mdlwp-style', get_stylesheet_directory_uri() . '/style.min.css' );
+	wp_enqueue_style( 'mdlwp-style', get_stylesheet_directory_uri() . '/style.css' );
 
 	wp_enqueue_script( 'mdlwp-mdl-js', '//storage.googleapis.com/code.getmdl.io/1.1.1/material.min.js', array(), '1.1.1', true );
 
 	wp_enqueue_script( 'mdlwp-mdlwp-js', get_template_directory_uri() . '/js/dist/scripts.min.js', array('jquery'), '1.1.9', true );
+
+	wp_enqueue_script('skipass-js', get_template_directory_uri() . '/js/skipass.js', array(), '1.1' ,true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
