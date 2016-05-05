@@ -318,7 +318,7 @@ ol.comment-list {
     border-collapse: separate;
     border-spacing: 5px;
     border: none;
-    background: transparent; }
+    background: transparent !important; }
     .accordion-tabs .tab-content table thead tr:first-child {
       background-color: #fff; }
     .accordion-tabs .tab-content table thead tr:last-child {
@@ -329,7 +329,7 @@ ol.comment-list {
       padding: 0;
       font-weight: bold; }
     .accordion-tabs .tab-content table tbody td {
-      background: white;
+      background: #fff;
       height: 100px;
       font-size: 24px;
       font-weight: 300;
@@ -385,6 +385,79 @@ ol.comment-list {
   text-align: center;
   margin: 0;
   font-size: 14px; }
+.accordion-tabs li.skipass-ballance .wrong-card, .accordion-tabs li.skipass-ballance .empty-card {
+  color: #F271A0; }
+.accordion-tabs li.skipass-ballance .server-error {
+  color: #4D84A5; }
+.accordion-tabs li.skipass-ballance table thead tr {
+  opacity: 0.9; }
+  .accordion-tabs li.skipass-ballance table thead tr td {
+    background-color: #fff; }
+    .accordion-tabs li.skipass-ballance table thead tr td form div {
+      right: 5%; }
+    .accordion-tabs li.skipass-ballance table thead tr td button {
+      left: 5%; }
+.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result:before {
+  content: "-";
+  display: block;
+  line-height: 1em;
+  color: transparent; }
+.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result tr td {
+  height: 80px;
+  font-size: 20px; }
+.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) {
+  background: transparent; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) .not-used-card {
+    background: #fff;
+    opacity: 0.9; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td {
+    margin: 0;
+    padding: 0;
+    background: transparent; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table {
+      padding: 0 !important;
+      margin: 0 -10px !important;
+      border-spacing: 10px 0;
+      width: calc(100% + 20px); }
+      .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr {
+        opacity: 0.8; }
+        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:first-of-type {
+          opacity: 0.9 !important; }
+          .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:first-of-type td {
+            height: 70px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #fff; }
+        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:nth-of-type(2) {
+          height: 10px; }
+        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr td {
+          height: 40px;
+          font-size: 18px;
+          font-weight: normal;
+          color: #616161;
+          cursor: pointer;
+          border: none;
+          background: #fff; }
+.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) {
+  opacity: 0.9; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) td span {
+    color: deepskyblue; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) td:last-child {
+    display: none; }
+.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type {
+  opacity: 0.9; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:first-child {
+    float: left;
+    margin-left: 1.1em; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:first-child span {
+      float: none;
+      color: deepskyblue; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:last-child {
+    float: right;
+    margin-right: 0.5em; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:last-child span {
+      float: none;
+      color: deepskyblue; }
 
 body {
   background-color: #f5f5f5; }
@@ -537,5 +610,116 @@ html {
     @media screen and (min-width: 40em) {
       .accordion-tabs .tab-content {
         float: left; } }
+
+/*--------------------------------------------------------------
+# Modal
+--------------------------------------------------------------*/
+.modal label {
+  cursor: pointer;
+  margin-bottom: 0; }
+.modal label img {
+  border-radius: 150px;
+  display: block;
+  max-width: 300px; }
+.modal .modal-state {
+  display: none; }
+.modal .modal-trigger {
+  padding: 0.8em 1em; }
+.modal .modal-fade-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  padding-top: 0.6em;
+  text-align: left;
+  transition: opacity 0.25s ease;
+  visibility: hidden;
+  z-index: 99999999999; }
+  @media screen and (min-width: 53.75em) {
+    .modal .modal-fade-screen {
+      padding-top: 10em; } }
+  .modal .modal-fade-screen .modal-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer; }
+.modal .modal-close {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  height: 1.5em;
+  width: 1.5em;
+  background: #fff;
+  cursor: pointer; }
+  .modal .modal-close::after, .modal .modal-close::before {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 0;
+    left: 50%;
+    height: 1.5em;
+    width: 0.15em;
+    background: #ddd;
+    content: "";
+    display: block;
+    margin: -3px 0 0 -1px;
+    transform: rotate(45deg); }
+  .modal .modal-close:hover::after, .modal .modal-close:hover::before {
+    background: #c4c4c4; }
+  .modal .modal-close::before {
+    transform: rotate(-45deg); }
+.modal .modal-inner {
+  background: #fff;
+  border-radius: 3px;
+  margin: auto;
+  margin-top: 0;
+  max-height: 95%;
+  overflow: auto;
+  padding: 1.5em;
+  position: relative;
+  transition: opacity 0.25s ease;
+  width: 95%; }
+  @media screen and (min-width: 40em) {
+    .modal .modal-inner {
+      max-height: 70%;
+      padding: 3em;
+      width: 60%; } }
+  @media screen and (min-width: 53.75em) {
+    .modal .modal-inner {
+      width: 50%; } }
+  .modal .modal-inner h1 {
+    color: #333;
+    text-align: left;
+    text-transform: capitalize; }
+  .modal .modal-inner p {
+    color: #333;
+    line-height: 1.5em; }
+  .modal .modal-inner .modal-intro {
+    margin-bottom: 1em; }
+  .modal .modal-inner .modal-content {
+    color: #333; }
+    @media screen and (min-width: 40em) {
+      .modal .modal-inner .modal-content {
+        columns: 2 8em; } }
+  .modal .modal-inner a.cta {
+    color: #fff;
+    display: inline-block;
+    margin-right: 0.5em;
+    margin-top: 1em; }
+    .modal .modal-inner a.cta:last-child {
+      padding: 0 2em; }
+.modal .modal-state:checked + .modal-fade-screen {
+  opacity: 1;
+  visibility: visible; }
+.modal .modal-state:checked + .modal-fade-screen .modal-inner {
+  top: 0.5em; }
+
+.modal-open {
+  overflow: hidden; }
 
 /*# sourceMappingURL=style.css.map */

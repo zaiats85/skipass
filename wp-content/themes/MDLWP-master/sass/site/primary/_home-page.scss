@@ -23,14 +23,14 @@
     }
     .tab-content {
         padding: 0 !important;
-        background: transparent !important;
+        background: $color__background-transparent !important;
         table {
             width: 100%;
             white-space: normal;
             border-collapse: separate;
             border-spacing: 5px;
             border:none;
-            background:transparent;
+            background: $color__background-transparent !important;
             thead {
                 tr {
                     &:first-child{
@@ -50,7 +50,7 @@
                     font-weight: bold;
                 }
                 td {
-                    background: white;
+                    background: $color__background-body;
                     height: 100px;
                     &:nth-child(2){
                         color: $color__main-pink;
@@ -140,6 +140,120 @@
                     text-align: center;
                     margin: 0;
                     font-size: $font-small;
+                }
+            }
+        }
+    }
+    li.skipass-ballance {
+        .wrong-card, .empty-card {
+            color: $color__main-pink;
+        }
+        .server-error {
+            color: $color__main-blue;
+        }
+        table {
+            thead {
+                tr {
+                    opacity:0.9;
+                    td {
+                        background-color: $color__background-body;
+                        form div {
+                            right: 5%;
+                        }
+                        button {
+                            left: 5%;
+                        }
+                    }
+                }
+            }
+            tbody.skipass-ballance-result {
+                &:before {
+                    content: "-";
+                    display: block;
+                    line-height: 1em;
+                    color: transparent;
+                }
+                tr {
+                    td {
+                        height: 80px;
+                        font-size: $font-large;
+                    }
+                }
+                >tr:nth-of-type(2) {
+                    background: $color__background-transparent;
+                    .not-used-card {
+                        background: $color__background-body;
+                        opacity:0.9;
+                    }
+                    td {
+                        margin: 0;
+                        padding: 0;
+                        background: transparent;
+                        table {
+                            padding: 0 !important;
+                            margin: 0 -10px !important;
+                            border-spacing: 10px 0;
+                            width:calc(100% + 20px);
+                            tr {
+                                opacity: 0.8;
+                                &:first-of-type {
+                                    opacity: 0.9 !important;
+                                    td {
+                                        height: 70px;
+                                        font-size: $font-large;
+                                        font-weight: bold;
+                                        background: $color__background-body;
+                                    }
+                                }
+                                &:nth-of-type(2){
+                                    height:10px;
+                                }
+                                td {
+                                    height: 40px;
+                                    font-size: $font-normal;
+                                    font-weight: normal;
+                                    color: $color__text_balance;
+                                    cursor: pointer;
+                                    border:none;
+                                    background: $color__background-body;
+                                }
+                            }
+                        }
+                    }
+                }
+                >tr:nth-of-type(3) {
+                    opacity: 0.9;
+                    td {
+                        span {
+                            color: $color__text_deepskyblue;
+                        }
+                        &:last-child {
+                            display: none;
+                        }
+                    }
+                }
+                >tr:first-of-type {
+                    opacity: 0.9;
+                    td {
+                        span {
+                            &:first-child {
+                                float: left;
+                                margin-left: 1.1em;
+                                span {
+                                    float :none;
+                                    color: $color__text_deepskyblue;
+                                }
+                            }
+                            &:last-child {
+                                float:right;
+                                margin-right: 0.5em;
+                                span {
+                                    float :none;
+                                    color: $color__text_deepskyblue;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

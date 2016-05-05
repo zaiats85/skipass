@@ -17,6 +17,7 @@
 ?>
 <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+
         <ul class="accordion-tabs">
             <li class="tab-header-and-content skipass">
                 <a href="javascript:void(0)" class="is-active tab-link">Абонементи</a>
@@ -40,6 +41,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
+
                                     <td class="mdl-data-table__cell--non-numeric">3 дні</td>
                                     <td class="mdl-data-table__cell--non-numeric">1125 грн</td>
                                     <td><img src="/wp-content/themes/MDLWP-master/images/basket.png" alt="купити"></td>
@@ -571,20 +573,25 @@
                                 <thead>
                                     <tr>
                                         <td colspan="4" ">
-                                        <h5>Введіть номер картки з дефісами</h5>
-                                        <p>
-                                            <input type="text"/>
-                                            <button type="submit">Отримати</button>
-                                        </p>
+                                            <h4>Введіть номер картки з дефісами:</h4>
+                                        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+                                            <form>
+                                                <div class="mdl-textfield mdl-js-textfield">
+                                                    <input class="mdl-textfield__input" type="numer" id="skipass-ballance" name="card_number">
+                                                    <label class="mdl-textfield__label" for="skipass-ballance">01-2167-21-154156</label>
+                                                </div>
+                                                <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent button-skipass-ballance">
+                                                    Отримати
+                                                </button>
+
+                                            </form>
+
                                         </td>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="skipass-ballance-result">
                                     <tr>
-                                        <td class="mdl-data-table__cell--non-numeric">3 дні</td>
-                                        <td class="mdl-data-table__cell--non-numeric">1125 грн</td>
-                                        <td><img src="/wp-content/themes/MDLWP-master/images/basket.png" alt="купити"></td>
-                                        <td class="mdl-data-table__cell--non-numeric">1125 грн</td>
+                                        <td colspan="4"></td>
                                     </tr>
                                 </tbody>
                             </table>
