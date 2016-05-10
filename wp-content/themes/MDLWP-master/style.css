@@ -293,6 +293,8 @@ ol.comment-list {
 --------------------------------------------------------------*/
 .accordion-tabs :first-child a {
   margin-left: 20px; }
+.accordion-tabs a.ajax_add_to_cart {
+  margin: 0; }
 .accordion-tabs .tab-header-and-content {
   text-align: center;
   font-size: 24px; }
@@ -319,27 +321,36 @@ ol.comment-list {
     border-spacing: 5px;
     border: none;
     background: transparent !important; }
-    .accordion-tabs .tab-content table thead tr:first-child {
-      background-color: #fff; }
-    .accordion-tabs .tab-content table thead tr:last-child {
-      background-color: #F2F2F2; }
-    .accordion-tabs .tab-content table thead tr td {
-      text-align: center; }
-    .accordion-tabs .tab-content table tbody :nth-child(2n) {
-      padding: 0;
-      font-weight: bold; }
-    .accordion-tabs .tab-content table tbody td {
-      background: #fff;
-      height: 100px;
-      font-size: 24px;
-      font-weight: 300;
-      text-align: center; }
-      .accordion-tabs .tab-content table tbody td:nth-child(2) {
-        color: #F271A0; }
-      .accordion-tabs .tab-content table tbody td:nth-child(1) {
-        min-width: 100px;
-        font-weight: bold;
-        padding: 10px; }
+    .accordion-tabs .tab-content table thead {
+      opacity: 0.8; }
+      .accordion-tabs .tab-content table thead tr:first-child {
+        background-color: #fff; }
+        .accordion-tabs .tab-content table thead tr:first-child td {
+          padding-top: 6px;
+          padding-bottom: 6px; }
+      .accordion-tabs .tab-content table thead tr:last-child {
+        background-color: #F2F2F2; }
+      .accordion-tabs .tab-content table thead tr td {
+        text-align: center; }
+        .accordion-tabs .tab-content table thead tr td span {
+          font-size: 14px; }
+    .accordion-tabs .tab-content table tbody {
+      opacity: 0.7; }
+      .accordion-tabs .tab-content table tbody :nth-child(2n) {
+        padding: 0;
+        font-weight: bold; }
+      .accordion-tabs .tab-content table tbody td {
+        background: #fff;
+        height: 100px;
+        font-size: 24px;
+        font-weight: 300;
+        text-align: center; }
+        .accordion-tabs .tab-content table tbody td:nth-child(2) {
+          color: #F271A0; }
+        .accordion-tabs .tab-content table tbody td:nth-child(1) {
+          min-width: 100px;
+          font-weight: bold;
+          padding: 10px; }
     .accordion-tabs .tab-content table tfoot::before {
       content: '';
       display: block;
@@ -361,14 +372,51 @@ ol.comment-list {
     margin-top: 10%;
     font-size: 18px;
     text-align: right; }
-.accordion-tabs li.skirent .skirent-purchase-options .mdl-cell:nth-child(3n-1) tbody td, .accordion-tabs li.skirent .skirent-purchase-options .mdl-cell:nth-child(3n-3) tbody td {
+.accordion-tabs li.club-cards .limiter {
+  height: 1.5em; }
+.accordion-tabs li.club-cards .mdl-cell:nth-of-type(4n) h5 {
+  font-size: 24px; }
+.accordion-tabs li.club-cards .mdl-cell:nth-of-type(4n) .horizontal-category-layout {
+  margin: 0 -8px !important;
+  width: calc(100% + 16px); }
+.accordion-tabs li.club-cards .mdl-cell:nth-of-type(4n) .mdl-cell {
+  display: inline-block;
+  float: left;
+  margin-top: 0; }
+  .accordion-tabs li.club-cards .mdl-cell:nth-of-type(4n) .mdl-cell table tr td:first-of-type {
+    color: #616161;
+    width: 38%; }
+  .accordion-tabs li.club-cards .mdl-cell:nth-of-type(4n) .mdl-cell table tr td:last-of-type {
+    width: 26%; }
+.accordion-tabs li.club-cards table thead:first-child tr:nth-of-type(2) {
+  height: 480px; }
+  .accordion-tabs li.club-cards table thead:first-child tr:nth-of-type(2) img {
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 15px; }
+  .accordion-tabs li.club-cards table thead:first-child tr:nth-of-type(2) .club-cards-description {
+    text-align: left;
+    margin-bottom: 25px; }
+.accordion-tabs li.club-cards table thead th {
+  font-size: 24px;
+  text-align: center;
+  height: 40px; }
+.accordion-tabs li.club-cards table tbody tr td:first-child {
   color: #F271A0; }
-.accordion-tabs li.skirent .skirent-purchase-options .mdl-cell:last-child {
-  opacity: 0.7; }
-  .accordion-tabs li.skirent .skirent-purchase-options .mdl-cell:last-child table td {
-    font-size: 18px; }
-  .accordion-tabs li.skirent .skirent-purchase-options .mdl-cell:last-child table img {
-    margin: 0 20px; }
+.accordion-tabs li.club-cards table tbody tr td:last-child {
+  width: 25%; }
+.accordion-tabs li.skirent .mdl-cell:nth-child(3n-1) tbody td, .accordion-tabs li.skirent .mdl-cell:nth-child(3n-3) tbody td {
+  color: #F271A0;
+  width: 77%; }
+  .accordion-tabs li.skirent .mdl-cell:nth-child(3n-1) tbody td:first-child, .accordion-tabs li.skirent .mdl-cell:nth-child(3n-3) tbody td:first-child {
+    display: none; }
+.accordion-tabs li.skirent .mdl-cell:last-child table tbody {
+  opacity: 0.8; }
+.accordion-tabs li.skirent .mdl-cell:last-child table td {
+  font-size: 18px;
+  height: 70px; }
+.accordion-tabs li.skirent .mdl-cell:last-child table img {
+  margin: 0 20px; }
 .accordion-tabs li.skirent table thead td {
   background-color: #fff;
   height: 90px; }
@@ -389,7 +437,7 @@ ol.comment-list {
   color: #F271A0; }
 .accordion-tabs li.skipass-ballance .server-error {
   color: #4D84A5; }
-.accordion-tabs li.skipass-ballance table thead tr {
+.accordion-tabs li.skipass-ballance table thead {
   opacity: 0.9; }
   .accordion-tabs li.skipass-ballance table thead tr td {
     background-color: #fff; }
@@ -397,67 +445,71 @@ ol.comment-list {
       right: 5%; }
     .accordion-tabs li.skipass-ballance table thead tr td button {
       left: 5%; }
-.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result:before {
-  content: "-";
-  display: block;
-  line-height: 1em;
-  color: transparent; }
-.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result tr td {
-  height: 80px;
-  font-size: 20px; }
-.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) {
-  background: transparent; }
-  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) .not-used-card {
-    background: #fff;
-    opacity: 0.9; }
-  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td {
-    margin: 0;
-    padding: 0;
+.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result {
+  opacity: 1; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result #order_info_header_white table tbody {
+    opacity: 1; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result:before {
+    content: "-";
+    display: block;
+    line-height: 1em;
+    color: transparent; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result tr td {
+    height: 80px;
+    font-size: 20px; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) {
     background: transparent; }
-    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table {
-      padding: 0 !important;
-      margin: 0 -10px !important;
-      border-spacing: 10px 0;
-      width: calc(100% + 20px); }
-      .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr {
-        opacity: 0.8; }
-        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:first-of-type {
-          opacity: 0.9 !important; }
-          .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:first-of-type td {
-            height: 70px;
-            font-size: 20px;
-            font-weight: bold;
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) .not-used-card {
+      background: #fff;
+      opacity: 0.9; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td {
+      margin: 0;
+      padding: 0;
+      background: transparent; }
+      .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table {
+        padding: 0 !important;
+        margin: 0 -10px !important;
+        border-spacing: 10px 0;
+        width: calc(100% + 20px); }
+        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr {
+          opacity: 0.8; }
+          .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:first-of-type {
+            opacity: 0.9 !important; }
+            .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:first-of-type td {
+              height: 70px;
+              font-size: 20px;
+              font-weight: bold;
+              background: #fff; }
+          .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:nth-of-type(2) {
+            height: 10px; }
+          .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr td {
+            height: 40px;
+            font-size: 18px;
+            font-weight: normal;
+            color: #616161;
+            cursor: pointer;
+            border: none;
             background: #fff; }
-        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr:nth-of-type(2) {
-          height: 10px; }
-        .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(2) td table tr td {
-          height: 40px;
-          font-size: 18px;
-          font-weight: normal;
-          color: #616161;
-          cursor: pointer;
-          border: none;
-          background: #fff; }
-.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) {
-  opacity: 0.9; }
-  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) td span {
-    color: deepskyblue; }
-  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) td:last-child {
-    display: none; }
-.accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type {
-  opacity: 0.9; }
-  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:first-child {
-    float: left;
-    margin-left: 1.1em; }
-    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:first-child span {
-      float: none;
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) {
+    opacity: 0.9; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) td span {
       color: deepskyblue; }
-  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:last-child {
-    float: right;
-    margin-right: 0.5em; }
-    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:last-child span {
-      float: none;
-      color: deepskyblue; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:nth-of-type(3) td:last-child {
+      display: none; }
+  .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type {
+    opacity: 0.9; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:first-child {
+      float: left;
+      margin-left: 1.1em; }
+      .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:first-child span {
+        float: none;
+        color: deepskyblue; }
+    .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:last-child {
+      float: right;
+      margin-right: 0.5em; }
+      .accordion-tabs li.skipass-ballance table tbody.skipass-ballance-result > tr:first-of-type td span:last-child span {
+        float: none;
+        color: deepskyblue; }
 
 body {
   background-color: #f5f5f5; }
@@ -721,5 +773,8 @@ html {
 
 .modal-open {
   overflow: hidden; }
+
+.products {
+  visibility: hidden; }
 
 /*# sourceMappingURL=style.css.map */

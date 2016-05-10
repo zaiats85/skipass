@@ -176,8 +176,14 @@ function mdlwp_remove_wc_sorting(){
 	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 }
 
+// Enable tags in Woocommerce category description
+foreach ( array( 'pre_term_description' ) as $filter ) {
+	remove_filter( $filter, 'wp_filter_kses' );
+}
 
-
+foreach ( array( 'term_description' ) as $filter ) {
+	remove_filter( $filter, 'wp_kses_data' );
+}
 
 // Unhook WooCommerce wrappers
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);

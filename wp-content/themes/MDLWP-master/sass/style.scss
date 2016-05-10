@@ -92,3 +92,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Modal
 --------------------------------------------------------------*/
 @import "elements/modal";
+
+.products {
+ visibility: hidden;
+}

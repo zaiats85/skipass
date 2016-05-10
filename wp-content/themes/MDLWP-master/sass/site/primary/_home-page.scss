@@ -2,7 +2,9 @@
     :first-child a {
         margin-left: 20px;
     }
-
+    a.ajax_add_to_cart {
+        margin: 0;
+    }
     .tab-header-and-content {
         text-align: center;
         font-size: $font-huge;
@@ -32,19 +34,29 @@
             border:none;
             background: $color__background-transparent !important;
             thead {
+                opacity: 0.8;
                 tr {
-                    &:first-child{
+                    &:first-child{                                                           // Subcategory header tab
                         background-color: $color__background-body;
+                        td {
+                            padding-top: 6px;
+                            padding-bottom: 6px;
+                        }
+
                     }
                     &:last-child {
                         background-color: $color__main-creamwhite;
                     }
                     td {
                         text-align: center;
+                        span {
+                            font-size: $font-small;
+                        }
                     }
                 }
             }
             tbody {
+                opacity:0.7;
                 :nth-child(2n) {
                     padding: 0;
                     font-weight: bold;
@@ -96,23 +108,96 @@
             text-align: right;
         }
     }
-    li.skirent {
-        .skirent-purchase-options {
-            .mdl-cell{
-                &:nth-child(3n-1), &:nth-child(3n-3){
-                    tbody td {
-                        color: $color__main-pink;
+    li.club-cards {
+        .limiter {
+            height: 1.5em;
+        }
+        .mdl-cell:nth-of-type(4n){
+            h5 {
+                font-size: $font-huge;
+            }
+            .horizontal-category-layout {
+                margin: 0 -8px !important;
+                width:calc(100% + 16px);
+            }
+            .mdl-cell {
+                display: inline-block;
+                float: left;
+                margin-top: 0;
+                table {
+                    tr {
+                        td {
+                            &:first-of-type {
+                                color: $color__text_balance;
+                                width:38%;
+                            }
+                            &:last-of-type {
+                                width:26%;
+                            }
+                        }
                     }
                 }
-                &:last-child {
-                    opacity: 0.7;
-                    table {
-                        td {
-                            font-size: $font-normal;
-                        }
+            }
+        }
+        table {
+            thead {
+                &:first-child {
+                    tr:nth-of-type(2) {
+                        // Subcategory descriptions
+                        height: 480px;
                         img {
-                            margin: 0 20px;
+                            float: left;
+                            padding-right: 10px;
+                            padding-bottom: 15px;
                         }
+                        .club-cards-description {
+                            text-align: left;
+                            margin-bottom: 25px;
+                        }
+                    }
+                }
+                th {
+                    font-size: $font-huge;
+                    text-align: center;
+                    height: 40px;
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        &:first-child {
+                            color: $color__main-pink;
+                        }
+                        &:last-child {
+                            width: 25%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    li.skirent {
+        .mdl-cell{
+            &:nth-child(3n-1), &:nth-child(3n-3){
+                tbody td {
+                    &:first-child {
+                        display: none;
+                    }
+                    color: $color__main-pink;
+                    width: 77%;
+                }
+            }
+            &:last-child { // skirent section footer
+                table {
+                    tbody {
+                        opacity: 0.8;
+                    }
+                    td {
+                        font-size: $font-normal;
+                        height: 70px;
+                    }
+                    img {
+                        margin: 0 20px;
                     }
                 }
             }
@@ -153,8 +238,8 @@
         }
         table {
             thead {
+                opacity:0.9;
                 tr {
-                    opacity:0.9;
                     td {
                         background-color: $color__background-body;
                         form div {
@@ -167,6 +252,10 @@
                 }
             }
             tbody.skipass-ballance-result {
+                opacity: 1;
+                #order_info_header_white table tbody {
+                    opacity: 1;
+                }
                 &:before {
                     content: "-";
                     display: block;
@@ -258,4 +347,5 @@
             }
         }
     }
+
 }

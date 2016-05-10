@@ -72,6 +72,23 @@
             }
         });
 
+        // Skipass skirent modify html structure
+        function modifySkirentStructure(){
+            $(".skirent .mdl-cell:nth-child(3n-2) td:first-child").attr('colspan', 3)
+            $(".skirent .mdl-cell:nth-child(3n-1) td:nth-child(2)").attr('colspan', 2)
+            $(".skirent .mdl-cell:nth-child(3n) td:nth-child(2)").attr('colspan', 2)
+        }
+        modifySkirentStructure();
+
+        // Skipass club-cards modify html structure
+
+        var table1 = $(".club-cards .mdl-cell:last-child");
+        function modifyClubCardsStructure(table1){
+            $('.club-cards .mdl-cell:nth-child(-n+3) table thead:first-child').after('<tr class="limiter"></tr>');
+            $(".club-cards .mdl-cell table tbody tr td:first-child").attr('colspan', 2);
+        }
+        modifyClubCardsStructure();
+
         $(function() {
             $("#modal-1").on("change", function() {
                 if ($(this).is(":checked")) {
@@ -91,4 +108,3 @@
         });
     });
 })(jQuery);
-
