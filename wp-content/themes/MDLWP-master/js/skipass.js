@@ -1,6 +1,6 @@
 (function($) {
     $(document).ready(function () {
-        // Accordion for home page
+        // Accordion tabs home page
         $('.accordion-tabs').each(function(index) {
             $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
         });
@@ -17,6 +17,42 @@
                 event.preventDefault();
             }
         });
+
+        // Accordion for promotions page
+        $('.js-accordion-trigger').bind('click', function(e){
+            var image = $(this).find('img');
+            var currentElement =$(this).parent();
+
+            closeAllOpenned(this);
+
+            $(this).parent().find('.submenu').slideToggle('slow');  // apply the toggle to the ul
+            $(this).parent().toggleClass('is-expanded');
+
+            changeIcon(image, currentElement);
+
+            e.preventDefault();
+        });
+
+        // Check to see if any opened accordion tabs
+        function closeAllOpenned(el) {
+            var accordionTabs = $(el).parent().siblings();
+            var image = accordionTabs.find('img');
+            if(accordionTabs.hasClass('is-expanded')) {
+                accordionTabs.removeClass('is-expanded').find('.submenu').hide('slow');
+                changeIcon(image, accordionTabs);
+            }
+        }
+
+        //Change accordion icon
+        function changeIcon(image, currentElement) {
+            console.log(image);
+            console.log(currentElement);
+            if(currentElement[0].className == "is-expanded"){
+                image.attr('src', '/wp-content/themes/MDLWP-master/images/up.png')
+            } else {
+                image.attr('src', '/wp-content/themes/MDLWP-master/images/down.png')
+            }
+        }
 
         // Skipass ballance main function
         $(this).ajaxStart(function(){
