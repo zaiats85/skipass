@@ -45,8 +45,6 @@
 
         //Change accordion icon
         function changeIcon(image, currentElement) {
-            console.log(image);
-            console.log(currentElement);
             if(currentElement[0].className == "is-expanded"){
                 image.attr('src', '/wp-content/themes/MDLWP-master/images/up.png')
             } else {

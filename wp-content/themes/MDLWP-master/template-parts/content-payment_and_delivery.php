@@ -29,7 +29,7 @@ $featured_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ),
 $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."');" : '');
 ?>
 
-<div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
+<div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp payment-and-delivery">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
         <div class="mdl-card__media" style="<?php echo $color . $bg . $height; ?> ">
@@ -44,7 +44,7 @@ $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."'
             'category'         => '',
             'category_name'    => 'payment-and-delivery',
             'orderby'          => 'date',
-            'order'            => 'DESC',
+            'order'            => 'ASC',
             'include'          => '',
             'exclude'          => '',
             'meta_key'         => '',
@@ -58,7 +58,7 @@ $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."'
         );
         ?>
         <div class="entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-            <div class="payment-and-delivery">
+
             <?php $posts_array = get_posts( $args );
                     foreach ($posts_array as $num=>$item): ?>
                         <div class="block-item">
@@ -70,7 +70,6 @@ $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."'
                             </div>
                         </div>
                     <?php endforeach; ?>
-            </div>
         </div><!-- .entry-content -->
             <?php wp_link_pages( array(
                 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mdlwp' ),

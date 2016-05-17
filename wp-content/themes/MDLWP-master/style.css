@@ -631,6 +631,74 @@ ol.comment-list {
     font-size: 20px;
     color: #616161; }
 
+/*--------------------------------------------------------------
+## Need To Know Page
+--------------------------------------------------------------*/
+.need-to-know {
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+  .need-to-know .entry-content {
+    margin-top: 3em;
+    padding: 0; }
+  .need-to-know .cards .card {
+    border: none;
+    background: #fff;
+    opacity: 0.7;
+    margin-left: 0;
+    margin-right: 0; }
+    .need-to-know .cards .card:first-of-type {
+      margin-right: 16px; }
+      .need-to-know .cards .card:first-of-type .card-header {
+        background-color: #4D84A5; }
+    .need-to-know .cards .card:nth-of-type(2) .card-header {
+      background-color: #F271A0; }
+    .need-to-know .cards .card:nth-of-type(3) {
+      margin-bottom: 0;
+      flex-basis: 55em; }
+      .need-to-know .cards .card:nth-of-type(3) .card-header {
+        background-color: deepskyblue; }
+    .need-to-know .cards .card .card-header {
+      height: 130px;
+      text-align: center;
+      color: white;
+      font-size: 30px;
+      padding-top: 1.5em; }
+    .need-to-know .cards .card .card-copy {
+      padding: 30px; }
+      .need-to-know .cards .card .card-copy p {
+        font-size: 18px; }
+
+/*--------------------------------------------------------------
+## Payment and Delivery Page
+--------------------------------------------------------------*/
+.payment-and-delivery {
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+  .payment-and-delivery .entry-content {
+    margin-top: 3em;
+    padding: 0; }
+  .payment-and-delivery .block-item .block-header {
+    background-color: #fff;
+    opacity: 0.8;
+    height: 70px;
+    color: deepskyblue;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 24px 0 0 31px; }
+  .payment-and-delivery .block-item .block-copy {
+    background-color: #fff;
+    opacity: 0.6;
+    padding: 2em 5em 2em 3em; }
+    .payment-and-delivery .block-item .block-copy ul li {
+      font-size: 20px;
+      color: #616161;
+      line-height: 1.5; }
+    .payment-and-delivery .block-item .block-copy p {
+      font-size: 20px;
+      line-height: 1.5; }
+
 body {
   background-color: #f5f5f5; }
 

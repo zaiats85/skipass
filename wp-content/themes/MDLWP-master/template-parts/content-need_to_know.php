@@ -29,7 +29,7 @@ $featured_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ),
 $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."');" : '');
 ?>
 
-<div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp">
+<div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp need-to-know">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
         <div class="mdl-card__media" style="<?php echo $color . $bg . $height; ?> ">
@@ -59,17 +59,17 @@ $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."'
         ?>
         <div class="entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
             <div class="cards">
-            <?php $posts_array = get_posts( $args );
-                    foreach ($posts_array as $num=>$item): ?>
-                        <div class="card">
-                            <div class="card-header">
-                                <?php echo $item->post_title;?>
-                            </div>
-                            <div class="card-copy">
-                                <p><?php echo $item->post_content; ?></p>
-                            </div>
+                <?php $posts_array = get_posts( $args );
+                foreach ($posts_array as $num=>$item): ?>
+                    <div class="card">
+                        <div class="card-header">
+                            <?php echo $item->post_title;?>
                         </div>
-                    <?php endforeach; ?>
+                        <div class="card-copy">
+                            <p><?php echo $item->post_content; ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div><!-- .entry-content -->
             <?php wp_link_pages( array(
