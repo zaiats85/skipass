@@ -27,8 +27,28 @@
 <header id="masthead" class="site-header mdl-layout__header" role="banner">
 
 	<?php do_action( 'mdlwp_after_opening_header' ); ?>
+	<div class="main-header-container">
+		<div class="mdl-grid mdlwp-1170">
 
-	<?php get_template_part( 'template-parts/nav', 'main' ); ?>
+			<div class="mdl-cell mdl-cell--12-col">
+				<?php get_template_part( 'template-parts/nav', 'main' ); ?>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-grid mdlwp-1170 after-header-info">
+		<div class="mdl-cell mdl-cell--6-col main-logo">
+			<a href="<?php get_home_url();?>"><img src="/wp-content/themes/MDLWP-master/images/Logo.png" alt="<?php bloginfo('name'); ?>"></a>
+			<p><?php bloginfo('description'); ?> <img src="/wp-content/themes/MDLWP-master/images/Logo-Bukovel.png" alt="Bukovel"></p>
+		</div>
+		<div class="mdl-cell mdl-cell--6-col office-phonenumbers">
+			<p>
+				+38 067 53 77 533
+			</p>
+			<p>
+				+38 066 79 77 533
+			</p>
+		</div>
+	</div>
 
     <?php do_action( 'mdlwp_before_closing_header' ); ?>
 

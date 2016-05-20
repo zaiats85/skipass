@@ -1,6 +1,6 @@
 .accordion-tabs {
     :first-child a {
-        margin-left: 20px;
+        margin-left: 13px;
     }
     a.ajax_add_to_cart {
         margin: 0;
@@ -9,17 +9,17 @@
         text-align: center;
         font-size: $font-huge;
         a {
-            width: 23.7%;
+            width: 24.1%;
             @media screen and (max-width: $phone-mode) {
                 width: 87%;
                 margin-left: 20px;
                 color: firebrick;
             }
             @media screen and (min-width: $phone-mode) and (max-width:$tablet) {
-                color: #00a0d2; // TEST purpose
+                color: #00a0d2;
             }
             @media screen and (min-width: $tablet) and (max-width: $tablet-max-landscape) {
-                color: darkorchid; // TEST purpose
+                color: darkorchid;
             }
         }
     }

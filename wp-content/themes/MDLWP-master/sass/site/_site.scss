@@ -31,7 +31,22 @@
 --------------------------------------------------------------*/
 @import "primary/_payment-and-delivery";
 
+
+
 body {
-  background-color: $mdl-color-body;
+    background-color: $mdl-color-body;
+    background-image: url('/wp-content/themes/MDLWP-master/images/imgpsh_fullsize.jpeg');
+    background-size: cover;
+    background-position: center;
+
+    //background-image: url('/wp-content/themes/MDLWP-master/images/mountains.jpeg');
+    //background-size: 70%;
+    .site-main {
+        padding-right: 0;
+        padding-left: 0;
+        .mdl-grid {
+            padding: 0;
+        }
+    }
 }
 

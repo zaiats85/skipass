@@ -1,7 +1,29 @@
 .mdl-mega-footer {
 	margin-top: 80px;
-
-	a:hover {
-		color: #fff;
+	background: $color__backround_lightblue;
+	.mdl-grid.mdlwp-1170 {
+		padding: 28px 42px 14px 16px;
+		min-height: 350px;
+	}
+	.mdl-cell {
+		p, h1 {
+			font-size: $font-large;
+			color: $color__text-foter;
+		}
+		&:nth-of-type(2) {
+			text-align: center;
+			background-image: url("/wp-content/themes/MDLWP-master/images/Layer-8.png");
+			background-repeat: no-repeat;
+			background-position: right bottom;
+		}
+		&:nth-of-type(3) {
+			background-image: url("/wp-content/themes/MDLWP-master/images/Layer-9.png");
+			background-repeat: no-repeat;
+			background-position: bottom;
+			padding-top: 10px;
+			a {
+				padding: 0 10px;
+			}
+		}
 	}
 }

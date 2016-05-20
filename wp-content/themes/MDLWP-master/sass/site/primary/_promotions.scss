@@ -1,5 +1,10 @@
 .promotions-page {
     background: transparent;
+    border: none;
+    box-shadow: none;
+    header {
+        text-transform: uppercase;
+    }
     .accordion {
         margin-bottom: 0;
     }
@@ -7,6 +12,7 @@
         opacity: 0.8;
     }
     .entry-content {
+        margin-top: 42px;
         padding: 0;
         opacity: 0.8;
     }
@@ -55,12 +61,12 @@
                     height: 100px;
                     img {
                         float: left;
-                        margin: 0 2em;
+                        margin: 0 40px;
                     }
                     div {
                         display: inline-block;
                         float: left;
-                        margin-left: 2em;
+                        margin-left: 40px;
                         text-align: left;
                         span {
                             font-size: $font-normal;
@@ -93,7 +99,6 @@
                         }
                     }
                 }
-
             }
         }
 
@@ -216,7 +221,7 @@
                 font-size: $font-xtra-huge;
                 height: 70px;
                 background-color: $color__background-body;
-                padding-left: 1em !important;
+                padding-left: 30px !important;
                 color:$color__text_promotion;
                 img {
                     float: right;
@@ -224,7 +229,7 @@
             }
             .excerpt-filled {
                 width: 80%;
-                padding-left: 5em;
+                padding-left: 100px;
                 font-size: $font_large;
                 color: $color__text_balance;
             }

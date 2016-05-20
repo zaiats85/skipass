@@ -126,11 +126,6 @@ textarea {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.mdl-layout__content {
-  background-image: url("/wp-content/themes/MDLWP-master/images/imgpsh_fullsize.jpeg");
-  background-size: cover;
-  background-position: center; }
-
 .site-main {
   padding-top: 40px;
   -ms-word-wrap: break-word;
@@ -295,14 +290,14 @@ ol.comment-list {
 ## Home Page
 --------------------------------------------------------------*/
 .accordion-tabs :first-child a {
-  margin-left: 20px; }
+  margin-left: 13px; }
 .accordion-tabs a.ajax_add_to_cart {
   margin: 0; }
 .accordion-tabs .tab-header-and-content {
   text-align: center;
   font-size: 24px; }
   .accordion-tabs .tab-header-and-content a {
-    width: 23.7%; }
+    width: 24.1%; }
     @media screen and (max-width: 768px) {
       .accordion-tabs .tab-header-and-content a {
         width: 87%;
@@ -518,12 +513,17 @@ ol.comment-list {
 ## Promotions Page
 --------------------------------------------------------------*/
 .promotions-page {
-  background: transparent; }
+  background: transparent;
+  border: none;
+  box-shadow: none; }
+  .promotions-page header {
+    text-transform: uppercase; }
   .promotions-page .accordion {
     margin-bottom: 0; }
   .promotions-page .mdl-card__media {
     opacity: 0.8; }
   .promotions-page .entry-content {
+    margin-top: 42px;
     padding: 0;
     opacity: 0.8; }
   .promotions-page .submenu div.mdl-cell {
@@ -554,11 +554,11 @@ ol.comment-list {
       height: 100px; }
       .promotions-page .submenu table tfoot td img {
         float: left;
-        margin: 0 2em; }
+        margin: 0 40px; }
       .promotions-page .submenu table tfoot td div {
         display: inline-block;
         float: left;
-        margin-left: 2em;
+        margin-left: 40px;
         text-align: left; }
         .promotions-page .submenu table tfoot td div span {
           font-size: 18px; }
@@ -621,13 +621,13 @@ ol.comment-list {
     font-size: 30px;
     height: 70px;
     background-color: #fff;
-    padding-left: 1em !important;
+    padding-left: 30px !important;
     color: #009fe3; }
     .promotions-page .promotions li .js-accordion-trigger img {
       float: right; }
   .promotions-page .promotions li .excerpt-filled {
     width: 80%;
-    padding-left: 5em;
+    padding-left: 100px;
     font-size: 20px;
     color: #616161; }
 
@@ -638,8 +638,10 @@ ol.comment-list {
   background-color: transparent;
   border: none;
   box-shadow: none; }
+  .need-to-know header {
+    text-transform: uppercase; }
   .need-to-know .entry-content {
-    margin-top: 3em;
+    margin-top: 42px;
     padding: 0; }
   .need-to-know .cards .card {
     border: none;
@@ -655,7 +657,7 @@ ol.comment-list {
       background-color: #F271A0; }
     .need-to-know .cards .card:nth-of-type(3) {
       margin-bottom: 0;
-      flex-basis: 55em; }
+      flex-basis: 770px; }
       .need-to-know .cards .card:nth-of-type(3) .card-header {
         background-color: deepskyblue; }
     .need-to-know .cards .card .card-header {
@@ -663,7 +665,7 @@ ol.comment-list {
       text-align: center;
       color: white;
       font-size: 30px;
-      padding-top: 1.5em; }
+      padding-top: 45px; }
     .need-to-know .cards .card .card-copy {
       padding: 30px; }
       .need-to-know .cards .card .card-copy p {
@@ -676,8 +678,10 @@ ol.comment-list {
   background-color: transparent;
   border: none;
   box-shadow: none; }
+  .payment-and-delivery header {
+    text-transform: uppercase; }
   .payment-and-delivery .entry-content {
-    margin-top: 3em;
+    margin-top: 42px;
     padding: 0; }
   .payment-and-delivery .block-item .block-header {
     background-color: #fff;
@@ -686,11 +690,11 @@ ol.comment-list {
     color: deepskyblue;
     font-size: 30px;
     font-weight: 500;
-    padding: 24px 0 0 31px; }
+    padding: 24px 0 0 45px; }
   .payment-and-delivery .block-item .block-copy {
     background-color: #fff;
     opacity: 0.6;
-    padding: 2em 5em 2em 3em; }
+    padding: 28px 70px 28px 42px; }
     .payment-and-delivery .block-item .block-copy ul li {
       font-size: 20px;
       color: #616161;
@@ -700,16 +704,78 @@ ol.comment-list {
       line-height: 1.5; }
 
 body {
-  background-color: #f5f5f5; }
+  background-color: #f5f5f5;
+  background-image: url("/wp-content/themes/MDLWP-master/images/imgpsh_fullsize.jpeg");
+  background-size: cover;
+  background-position: center; }
+  body .site-main {
+    padding-right: 0;
+    padding-left: 0; }
+    body .site-main .mdl-grid {
+      padding: 0; }
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .mdl-mega-footer {
-  margin-top: 80px; }
-  .mdl-mega-footer a:hover {
-    color: #fff; }
+  margin-top: 80px;
+  background: rgba(224, 237, 250, 0.6); }
+  .mdl-mega-footer .mdl-grid.mdlwp-1170 {
+    padding: 28px 42px 14px 16px;
+    min-height: 350px; }
+  .mdl-mega-footer .mdl-cell p, .mdl-mega-footer .mdl-cell h1 {
+    font-size: 20px;
+    color: #112853; }
+  .mdl-mega-footer .mdl-cell:nth-of-type(2) {
+    text-align: center;
+    background-image: url("/wp-content/themes/MDLWP-master/images/Layer-8.png");
+    background-repeat: no-repeat;
+    background-position: right bottom; }
+  .mdl-mega-footer .mdl-cell:nth-of-type(3) {
+    background-image: url("/wp-content/themes/MDLWP-master/images/Layer-9.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding-top: 10px; }
+    .mdl-mega-footer .mdl-cell:nth-of-type(3) a {
+      padding: 0 10px; }
 
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-header {
+  background: rgba(224, 237, 250, 0.6);
+  box-shadow: none; }
+  .site-header .main-header-container {
+    background: #03a9f4; }
+    .site-header .main-header-container .mdl-grid {
+      padding: 0; }
+      .site-header .main-header-container .mdl-grid .mdl-cell {
+        margin: 0; }
+  .site-header .language-toggle a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #616161; }
+  .site-header .mdl-layout__drawer-button {
+    background: none; }
+  .site-header .after-header-info {
+    width: 100%; }
+    .site-header .after-header-info .main-logo img {
+      vertical-align: text-bottom;
+      padding-bottom: 2px;
+      padding-left: 5px; }
+    .site-header .after-header-info .main-logo p {
+      font-size: 18px; }
+    .site-header .after-header-info .office-phonenumbers {
+      padding-top: 30px;
+      padding-right: 7px; }
+      .site-header .after-header-info .office-phonenumbers p {
+        line-height: 1.1;
+        font-size: 36px;
+        text-align: right; }
+
+/*--------------------------------------------------------------
+## Side Menu
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
@@ -1039,13 +1105,7 @@ html {
   .accordion ul.submenu {
     display: none; }
     .accordion ul.submenu li {
-      background-color: #e9e9e9;
-      /* Uncomment when needed
-        &:focus,
-        &:hover {
-        background-color: $accordion-menu-sub-hover;
-      }
-      */ }
+      background-color: #e9e9e9; }
       .accordion ul.submenu li:first-child {
         border-top: 1px solid gainsboro;
         box-shadow: inset 0 1px 1px #d9d9d9; }

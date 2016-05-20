@@ -229,7 +229,7 @@ get_header(); ?>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                             <?php break;
-                                        case "Баланс абонемента": ?>
+                                        case "Баланс Скіпаса": ?>
                                             <div class="mdl-cell mdl-cell--12-col">
                                                 <table class="mdl-data-table mdl-js-data-table">
                                                     <thead>
