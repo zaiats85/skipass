@@ -97,13 +97,25 @@
                 )
         });
 
-        // Skipass ballance input form prevent submit on enterkey
-        $(".skipass-ballance").keydown(function (e) {
+        // Prevent submit on keydown enter
+        function enter_redirect(e, element){
             if (e.keyCode == 13) {
                 event.preventDefault();
-                $('.button-skipass-ballance').trigger('click');
+                console.log(element);
+                element.trigger('click');
                 return false;
             }
+        }
+
+        $('.input-text.qty.text').keydown(function(e){
+            var element = $('.input-text.qty.text');
+            enter_redirect(event, element);
+        });
+
+        // Skipass ballance input form prevent submit on enterkey
+        $(".skipass-ballance").keydown(function (e) {
+            var element = $('.button-skipass-ballance');
+            enter_redirect(event, element);
         });
 
         // Skipass skirent modify html structure
@@ -140,5 +152,65 @@
                 e.stopPropagation();
             });
         });
+
+        // Skipass cart
+        $('.remove-product, .product-quantity').click(function(e){
+
+            var product_id = $(this).attr("data-product_id");
+
+            switch(e.target.className) {
+                case 'remove-product':
+                    var item = $(this).closest('tr');
+                    cart_ajax_operate(item, 0, product_id);
+                    break;
+
+                case 'input-text qty text':
+                    var item_subtotal = $(this).siblings('.product-subtotal').find('span');
+                    var item_qty = $(this).find('.qty').val();
+                    cart_ajax_operate(item_subtotal, item_qty, product_id);
+                    break;
+            }
+            return false;
+        });
+
+        // Call modal cart popup on product purchased (main page)
+        $('.call-cart').click(function(){
+
+        });
+
+        // Ajax query template
+        function cart_ajax_operate(item, quantity, product_id){
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "/wp-admin/admin-ajax.php",
+                data: {
+                    action: "cart_operations",
+                    product_id: product_id,
+                    quantity: quantity
+                },
+                success: function(data){
+                    data['quantity'] > 0 ? update_product(item, data) : remove_product(item);
+                    update_totals(data);
+                }
+            });
+        }
+
+        // Parse response methods
+        function update_product(product, data){
+            product.replaceWith(data['product_subtotal']);
+        }
+
+        function remove_product(product){
+            product.remove();
+        }
+
+        function update_totals (prices_data) {
+            var cart_subtotal = prices_data['cart_subtotal'];
+            var cart_total = prices_data['cart_total'];
+            $('.cart-subtotal td[data-title="Subtotal"] span').replaceWith(cart_subtotal);
+            $('.order-total td[data-title="Total"] span').replaceWith(cart_total);
+        }
+
     });
 })(jQuery);

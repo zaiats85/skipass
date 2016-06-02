@@ -76,6 +76,7 @@ $bg = (!empty( $featured_img ) ? "background-image: url('". $featured_img[0] ."'
                 'after'  => '</div>',
             ) );
             ?>
+
     </article><!-- #post-## -->
 </div> <!-- .mdl-cell -->
 

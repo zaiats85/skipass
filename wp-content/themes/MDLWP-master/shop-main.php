@@ -68,7 +68,7 @@ get_header(); ?>
                                                             <thead>
                                                             <tr>
                                                                 <td colspan="3" ">
-                                                                <h5><?php echo $sub_category->name;?></h5>
+                                                                    <h5><?php echo $sub_category->name;?></h5>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -87,7 +87,11 @@ get_header(); ?>
                                                                     <tr>
                                                                         <td class="mdl-data-table__cell--non-numeric"><?php the_title() ; ?></td>
                                                                         <td class="mdl-data-table__cell--non-numeric"><?php  echo  get_post_meta( get_the_ID(), '_regular_price', true); ?> грн</td>
-                                                                        <td><a rel="nofollow" href=<?php echo $ajax_url; ?> data-product_id=<?php echo $product_ID?> class="product_type_simple add_to_cart_button ajax_add_to_cart"><img src="/wp-content/themes/MDLWP-master/images/basket.png" alt="купити"></a></td>
+                                                                        <td>
+                                                                            <a rel="nofollow" href=<?php echo $ajax_url; ?> data-product_id=<?php echo $product_ID?> class="product_type_simple add_to_cart_button ajax_add_to_cart">
+                                                                                <img class="call-cart" src="/wp-content/themes/MDLWP-master/images/basket.png" alt="купити">
+                                                                            </a>
+                                                                        </td>
                                                                     </tr>
                                                                 <?php endwhile;?>
                                                                 </tbody>
@@ -263,7 +267,6 @@ get_header(); ?>
                         <?php endif; ?>
                         </li>
                     <?php endforeach;?>
-
         <?php do_action( 'mdlwp_after_content' ); ?>
     </main><!-- #main -->
 

@@ -210,6 +210,40 @@ function mdlwp_wrapper_end() {
 	echo '</section>';
 }
 
+//Woocommerce remove/update cart ajax controller
+
+add_action( 'wp_ajax_cart_operations', 'cart_operations' );
+add_action( 'wp_ajax_nopriv_cart_operations', 'cart_operations' );
+function cart_operations() {
+
+	$prices = array(); // Response array
+	
+	$cart = WC()->instance()->cart;
+	$id = $_POST['product_id'];
+	$quantity = $_POST['quantity'];
+	$cart_id = $cart->generate_cart_id($id);
+
+	$cart_item_id = $cart->find_product_in_cart($cart_id);
+
+	if($cart_item_id){
+		$cart->set_quantity($cart_item_id, $quantity);
+	}
+
+	$cart_total = $cart->get_cart_total();
+	$cart_subtotal = $cart->get_cart_subtotal();
+
+	$product = new WC_Product($id);
+	$product_subtotal = $cart->get_product_subtotal($product, $quantity);
+
+	$prices['product_subtotal'] = $product_subtotal;
+	$prices['cart_subtotal'] = $cart_subtotal;
+	$prices['cart_total'] = $cart_total;
+    $prices['quantity'] = $quantity;
+
+	echo json_encode($prices);
+	exit();
+}
+
 /**
  * Implement the Custom Header feature.
  */

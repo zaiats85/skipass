@@ -289,6 +289,8 @@ ol.comment-list {
 /*--------------------------------------------------------------
 ## Home Page
 --------------------------------------------------------------*/
+.accordion-tabs .added_to_cart {
+  display: none; }
 .accordion-tabs :first-child a {
   margin-left: 13px; }
 .accordion-tabs a.ajax_add_to_cart {
