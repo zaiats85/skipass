@@ -239,11 +239,26 @@ function cart_operations() {
 	$prices['cart_subtotal'] = $cart_subtotal;
 	$prices['cart_total'] = $cart_total;
     $prices['quantity'] = $quantity;
+    $prices['total_quantity'] = $cart->get_cart_contents_count();
 
 	echo json_encode($prices);
 	exit();
 }
 
+wp_dequeue_script('wc-add-to-cart');
+wp_register_script('wc-add-to-cart', get_bloginfo( 'stylesheet_directory' ). '/woocommerce/assets/js/add-to-cart.js' , array( 'jquery' ), WC_VERSION, TRUE);
+wp_enqueue_script('wc-add-to-cart');
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+      ob_start();
+      wc_get_template( 'cart/cart.php' );
+
+      $fragments['cart_content'] = ob_get_clean();
+      $fragments['cart_items_count'] = WC()->instance()->cart->get_cart_contents_count();
+
+      return $fragments;
+}
 /**
  * Implement the Custom Header feature.
  */

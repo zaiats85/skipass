@@ -1,3 +1,5 @@
+var $ = jQuery.noConflict();
+
 (function($) {
     $(document).ready(function () {
         // Accordion tabs home page
@@ -153,64 +155,50 @@
             });
         });
 
-        // Skipass cart
-        $('.remove-product, .product-quantity').click(function(e){
-
-            var product_id = $(this).attr("data-product_id");
-
-            switch(e.target.className) {
-                case 'remove-product':
-                    var item = $(this).closest('tr');
-                    cart_ajax_operate(item, 0, product_id);
-                    break;
-
-                case 'input-text qty text':
-                    var item_subtotal = $(this).siblings('.product-subtotal').find('span');
-                    var item_qty = $(this).find('.qty').val();
-                    cart_ajax_operate(item_subtotal, item_qty, product_id);
-                    break;
-            }
-            return false;
-        });
-
         // Call modal cart popup on product purchased (main page)
         $('.call-cart').click(function(){
 
         });
-
-        // Ajax query template
-        function cart_ajax_operate(item, quantity, product_id){
-            $.ajax({
-                type: 'POST',
-                dataType: 'json',
-                url: "/wp-admin/admin-ajax.php",
-                data: {
-                    action: "cart_operations",
-                    product_id: product_id,
-                    quantity: quantity
-                },
-                success: function(data){
-                    data['quantity'] > 0 ? update_product(item, data) : remove_product(item);
-                    update_totals(data);
-                }
-            });
-        }
-
-        // Parse response methods
-        function update_product(product, data){
-            product.replaceWith(data['product_subtotal']);
-        }
-
-        function remove_product(product){
-            product.remove();
-        }
-
-        function update_totals (prices_data) {
-            var cart_subtotal = prices_data['cart_subtotal'];
-            var cart_total = prices_data['cart_total'];
-            $('.cart-subtotal td[data-title="Subtotal"] span').replaceWith(cart_subtotal);
-            $('.order-total td[data-title="Total"] span').replaceWith(cart_total);
-        }
-
     });
 })(jQuery);
+
+//remove product from cart popup
+$('.modal-inner, .shop_table.cart').on('click', '.remove-product', function() {
+    var product_id = $(this).attr("data-product_id");
+    cart_ajax_operate($(this).closest('tr'), 0, product_id);
+});
+
+//update product from cart popup
+$('.modal-inner, .shop_table.cart').on('keyup change', '.product-quantity input[type="number"]', function() {
+    var product_id = $(this).parents('td.product-quantity').data('product_id');
+    var item_subtotal = $(this).siblings('.product-subtotal').find('span');
+    var item_qty = $(this).val();
+
+    cart_ajax_operate(item_subtotal, item_qty, product_id);
+});
+
+// Ajax query template
+function cart_ajax_operate(item, quantity, product_id){
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: "/wp-admin/admin-ajax.php",
+        data: {
+            action: "cart_operations",
+            product_id: product_id,
+            quantity: quantity
+        },
+        success: function(data){
+            data['quantity'] > 0 ? item.replaceWith(data['product_subtotal']) : item.remove();
+            update_totals(data);
+        }
+    });
+}
+
+function update_totals (prices_data) {
+    var cart_subtotal = prices_data['cart_subtotal'];
+    var cart_total = prices_data['cart_total'];
+    $('.cart-subtotal td[data-title="Subtotal"] span').replaceWith(cart_subtotal);
+    $('.order-total td[data-title="Total"] span').replaceWith(cart_total);
+    $('.modal-trigger.mdl-badge').attr('data-badge', prices_data['total_quantity']);
+}
