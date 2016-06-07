@@ -217,7 +217,7 @@ add_action( 'wp_ajax_nopriv_cart_operations', 'cart_operations' );
 function cart_operations() {
 
 	$prices = array(); // Response array
-	
+
 	$cart = WC()->instance()->cart;
 	$id = $_POST['product_id'];
 	$quantity = $_POST['quantity'];
@@ -259,6 +259,113 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
       return $fragments;
 }
+
+function st_ajaxurl(){ ?>
+<script>
+    var ajaxurl = '<?php echo admin_url('admin-ajax.php') ?>';
+</script>
+<?php }
+add_action('wp_head','st_ajaxurl');
+
+function st_handle_registration(){
+
+    if( $_POST['action'] == 'register_action' ) {
+        extract($_POST);
+
+        if( empty( $email ) )
+            $response['message'][]= 'Enter Email';
+        elseif( !filter_var($email, FILTER_VALIDATE_EMAIL) )
+            $response['message'][]= 'Enter Valid Email';
+
+        if( empty( $password ) )
+            $response['message'][]= 'Password should not be blank';
+        elseif ( $password !== $passwordRepeat)
+            $response['message'][] = 'Password must be same';
+
+        if( empty( $fullName ) )
+            $response['message'][]= 'Enter Full Name';
+
+        if( empty( $city ) )
+            $response['message'][]= 'Enter City';
+
+        if( empty( $telephone ) )
+            $response['message'][]= 'Enter telephone';
+
+        if( empty( $response ) ){
+            $status = wp_create_user( $email, $password ,$email );
+
+            if( is_wp_error($status) ){
+                foreach( $status->errors as $key => $val ){
+                    foreach( $val as $k => $v ){
+                        $msg[] = $v;
+                    }
+                }
+                $response['message'] = $msg;
+            } else {
+                $response['status'] = 200;
+                wp_set_auth_cookie( $status, false, is_ssl() );
+            }
+        }
+
+        echo json_encode($response);
+        exit;
+    }
+}
+add_action( 'wp_ajax_register_action', 'st_handle_registration' );
+add_action( 'wp_ajax_nopriv_register_action', 'st_handle_registration' );
+
+add_action( 'tml_new_user_registered', 'tml_new_user_registered' );
+
+
+function user_metadata( $user_id ){
+    $fullName = trim($_POST['fullName']);
+    update_user_meta( $user_id, 'first_name', explode(' ', $fullName)[0] );
+    update_user_meta( $user_id, 'last_name', explode(' ', $fullName)[1] );
+    update_user_meta( $user_id, 'billing_first_name', explode(' ', $fullName)[0] );
+    update_user_meta( $user_id, 'billing_last_name', explode(' ', $fullName)[1] );
+    update_user_meta( $user_id, 'display_name', $fullName);
+    update_user_meta( $user_id, 'billing_phone', $_POST['telephone']);
+    update_user_meta( $user_id, 'billing_city', $_POST['city']);
+    update_user_meta( $user_id, 'billing_email', $_POST['email']);
+    update_user_meta( $user_id, 'show_admin_bar_front', false );
+}
+add_action( 'user_register', 'user_metadata' );
+add_action( 'profile_update', 'user_metadata' );
+
+add_action( 'wp_ajax_custom_login', 'custom_login' );
+add_action( 'wp_ajax_nopriv_custom_login', 'custom_login' );
+
+function custom_login() {
+
+
+    $credentials = [
+        'user_login' => $_POST['email'],
+        'user_password' => $_POST['password'],
+        'remember' => $_POST['remember'] == 'true' ? true : false,
+    ];
+
+    $userLogin = wp_signon($credentials);
+
+    if ($userLogin instanceof WP_User) {
+        $response['status'] = 200;
+    } else {
+        foreach( $userLogin->errors as $key => $val ){
+            foreach( $val as $k => $v ){
+                $errors[] = $v;
+            }
+        }
+        $response = [
+            'status' => 500,
+            'messages' => $errors
+        ];
+    }
+
+
+
+    echo json_encode($response);
+    exit;
+}
+
 /**
  * Implement the Custom Header feature.
  */

@@ -138,7 +138,7 @@ var $ = jQuery.noConflict();
         modifyClubCardsStructure();
 
         $(function() {
-            $("#modal-1").on("change", function() {
+            $("#modal-1, #modal-login").on("change", function() {
                 if ($(this).is(":checked")) {
                     $("body").addClass("modal-open");
                 } else {
@@ -158,6 +158,16 @@ var $ = jQuery.noConflict();
         // Call modal cart popup on product purchased (main page)
         $('.call-cart').click(function(){
 
+        });
+
+        $('.login-item').click(function (e) {
+            e.preventDefault();
+            $("#modal-login").prop("checked", true);
+        });
+
+        $('.register_item').click(function (e) {
+            e.preventDefault();
+            $("#modal-register").prop("checked", true);
         });
     });
 })(jQuery);
@@ -182,7 +192,7 @@ function cart_ajax_operate(item, quantity, product_id){
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: "/wp-admin/admin-ajax.php",
+        url: '/wp-admin/admin-ajax.php',
         data: {
             action: "cart_operations",
             product_id: product_id,
@@ -202,3 +212,55 @@ function update_totals (prices_data) {
     $('.order-total td[data-title="Total"] span').replaceWith(cart_total);
     $('.modal-trigger.mdl-badge').attr('data-badge', prices_data['total_quantity']);
 }
+
+/* Registration Ajax */
+$('#register-me').on('click',function(){
+    var ajaxData = {
+        action: 'register_action',
+        fullName: $('input[name="full_name"]').val(),
+        email: $('input[name="email"]').val(),
+        city: $('input[name="city"]').val(),
+        telephone: $('input[name="telephone"]').val(),
+        password: $('input[name="password"]').val(),
+        passwordRepeat: $('input[name="passwordRepeat"]').val(),
+    };
+
+    $.post( ajaxurl, ajaxData, function(response){
+        response = JSON.parse(response);
+
+        if (response.status == 200) {
+            location.reload();
+        } else {
+            $("#error-message").html('');
+            $.each(response.message, function (ind, el) {
+                $("#error-message").append('<p>' + el + '</p>')
+            });
+        }
+    });
+});
+
+//Login AJAX
+$('#wp-login-btn').on('click', function (e) {
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '/wp-admin/admin-ajax.php',
+        data: {
+            action: 'custom_login',
+            email: $('#user_login').val(),
+            password: $('#password').val(),
+            remember: $('#rememberme').attr('checked') ? true : false
+        },
+        success: function (response) {
+            $('#error-messages-login').html('');
+            if (response.status == 200) {
+                location.reload();
+            } else if (response.status == 500) {
+                $.each(response.messages, function (ind, el) {
+                    $('#error-messages-login').append(el)
+                });
+            }
+        }
+    });
+});
