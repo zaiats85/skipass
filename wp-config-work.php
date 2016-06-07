@@ -23,13 +23,13 @@
 define('DB_NAME', 'dev_skipass');
 
 /** MySQL database username */
-define('DB_USER', 'roo	t');
+define('DB_USER', 'ozayats');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'HNf*we8_1ewf');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '192.168.0.105');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -90,3 +90,4 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+
